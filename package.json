@@ -1,0 +1,30 @@
+{
+  "name": "legendary-fiesta",
+  "version": "1.0.0",
+  "description": "Demo PWA",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run build:app && npm run build:sw",
+    "build:app": "vite build",
+    "build:sw": "workbox injectManifest workbox.config.js",
+    "serve": "vite serve --host localhost"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KleinChiu/legendary-fiesta.git"
+  },
+  "author": "KleinChiu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KleinChiu/legendary-fiesta/issues"
+  },
+  "homepage": "https://github.com/KleinChiu/legendary-fiesta#readme",
+  "dependencies": {
+    "@vitejs/plugin-vue": "^3.1.2",
+    "typescript": "^4.8.4",
+    "vite": "^3.1.8",
+    "vite-plugin-env-compatible": "^1.1.1",
+    "vue": "^3.2.41",
+    "workbox-cli": "^6.5.4"
+  }
+}
