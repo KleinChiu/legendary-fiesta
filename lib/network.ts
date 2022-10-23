@@ -7,6 +7,6 @@ export const fetchPersona = () =>
     .catch(() => null);
 
 export const login = () =>
-  fetch(`${process.env.API_SERVER}/users.json`)
+  fetch(`${process.env.API_SERVER}/user.json`)
     .then<User>((data) => data.json())
     .catch(() => null);
