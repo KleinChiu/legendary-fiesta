@@ -32,8 +32,7 @@ import db, {
   Persona,
   User,
 } from "../data";
-import { sleep } from "../lib";
-import { fetchPersona, login as signIn } from "../lib/network";
+import { fetchPersona, login as signIn } from "../lib";
 
 //#region Counter
 const count = ref(Number.parseInt(localStorage.getItem(Click_Key) ?? "0"));
@@ -54,8 +53,8 @@ const refreshPersonas = () =>
     .then((ps) => (personas.value = ps));
 refreshPersonas();
 
-Promise.all([fetchPersona(), sleep(3000)])
-  .then(([ps]) => openPersonaStore(db).then(addAllPersonas(ps ?? [])))
+fetchPersona()
+  .then((ps) => openPersonaStore(db).then(addAllPersonas(ps ?? [])))
   .then(refreshPersonas);
 //#endregion
 </script>
