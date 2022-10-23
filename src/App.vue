@@ -25,7 +25,7 @@ export const Click_Key = "CLICK_COUNT";
 <script setup lang="ts">
 import { ref, watch } from "vue";
 
-import { Persona, User } from "../data";
+import db, { addAllPersonas, openPersonaStore, Persona, User } from "../data";
 import { sleep } from "../lib";
 import { fetchPersona, login as signIn } from "../lib/network";
 
@@ -41,7 +41,9 @@ const login = () => signIn().then((u) => (user.value = u));
 //#endregion
 
 //#region Persona
-const personas = ref<Persona[] | null>(null);
-Promise.all([fetchPersona(), sleep(3000)]).then(([p]) => (personas.value = p));
+const personas = ref<Persona[]>([]);
+Promise.all([fetchPersona(), sleep(3000)])
+  .then(([p]) => (personas.value = p ?? []))
+  .then((ps) => openPersonaStore(db).then(addAllPersonas(ps)));
 //#endregion
 </script>
