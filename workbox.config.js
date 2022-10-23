@@ -1,6 +1,6 @@
 module.exports = {
   globDirectory: ".",
-  globPatterns: ["icons/*.*", "**/*.html"],
+  globPatterns: ["**/*.html"],
   modifyURLPrefix: {
     "public/": "",
   },
