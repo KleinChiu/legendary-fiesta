@@ -8,6 +8,5 @@ export const fetchPersona = () =>
 
 export const login = () =>
   fetch(`${process.env.API_SERVER}/users.json`)
-    .then((data) => data.json())
-    .then((data) => data.users[0] as User)
+    .then<User>((data) => data.json())
     .catch(() => null);
