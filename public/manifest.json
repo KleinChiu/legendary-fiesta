@@ -1,15 +1,15 @@
 {
-  "id": "demo",
-  "name": "Demo App",
-  "short_name": "Demo",
+  "id": "legendary-fiesta",
+  "name": "Legendary Fiesta",
+  "short_name": "legendary-fiesta",
   "description": "A simple demo app for localStorage, IndexedDB and PWA, which fully functional offline.",
   "categories": ["education"],
   "theme_color": "#ffb900",
   "background_color": "#0054a7",
   "display": "standalone",
   "orientation": "portrait",
-  "scope": "/",
-  "start_url": "/",
+  "scope": "/legendary-fiesta/",
+  "start_url": "/legendary-fiesta/",
   "icons": [
     {
       "src": "icons/icon-72x72.png",

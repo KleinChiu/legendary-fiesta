@@ -10,4 +10,5 @@ export default defineConfig({
     }),
     vue(),
   ],
+  base: "/legendary-fiesta/",
 });
