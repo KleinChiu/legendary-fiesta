@@ -51,5 +51,4 @@ const openDB = () =>
     return db;
   });
 
-export const db = await openDB();
-export default db;
+export default openDB();

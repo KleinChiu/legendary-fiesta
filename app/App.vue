@@ -48,13 +48,14 @@ const login = () => signIn().then((u) => (user.value = u));
 //#region Persona
 const personas = ref<Persona[]>([]);
 const refreshPersonas = () =>
-  openPersonaStore(db)
+  db
+    .then(openPersonaStore)
     .then(getAllPersonas)
     .then((ps) => (personas.value = ps));
 refreshPersonas();
 
 fetchPersona()
-  .then((ps) => openPersonaStore(db).then(addAllPersonas(ps ?? [])))
+  .then((ps) => db.then(openPersonaStore).then(addAllPersonas(ps ?? [])))
   .then(refreshPersonas);
 //#endregion
 </script>
