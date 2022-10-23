@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Demo PWA",
   "scripts": {
-    "build": "npm run build:app && npm run build:sw",
+    "build": "npm run build:sw && npm run build:app",
     "build:app": "vite build",
     "build:sw": "workbox injectManifest workbox.config.js",
     "dev": "npm run build:sw && vite",
