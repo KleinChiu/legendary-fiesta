@@ -18,16 +18,21 @@
   </main>
 </template>
 
+<script lang="ts">
+export const Click_Key = "CLICK_COUNT";
+</script>
+
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
 import { Persona, User } from "../data";
 import { sleep } from "../lib";
 import { fetchPersona, login as signIn } from "../lib/network";
 
 //#region Counter
-const count = ref(0);
+const count = ref(Number.parseInt(localStorage.getItem(Click_Key) ?? "0"));
 const increment = () => (count.value += 1);
+watch(count, (val) => localStorage.setItem(Click_Key, val.toString()));
 //#endregion
 
 //#region Login
