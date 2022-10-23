@@ -8,11 +8,9 @@
     <link rel="manifest" href="manifest.json" />
   </head>
 
-  <body>
-    <main id="app"></main>
-    <script type="module" src="src/main.ts"></script>
-  </body>
+  <body id="app"></body>
 
+  <script type="module" src="src/main.ts"></script>
   <script>
     navigator?.serviceWorker?.register("sw.js");
   </script>
