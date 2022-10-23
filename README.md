@@ -17,3 +17,9 @@ npm install
 npm run build:sw
 npm run serve
 ```
+
+## Environment Variable
+
+The app require the following env var to function properly.
+
+- `API_SERVER`: url to api server. Default: http://localhost:5173/data
