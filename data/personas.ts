@@ -3,7 +3,10 @@ import { asyncTransaction, DbOperation, Persona, StoreDBOperation } from ".";
 const STORE_NAME = "personas";
 
 export const createPersonaStore: DbOperation = (db) => {
-  const store = db.createObjectStore(STORE_NAME, { autoIncrement: true });
+  const store = db.createObjectStore(STORE_NAME, {
+    keyPath: "name",
+    autoIncrement: true,
+  });
 
   return asyncTransaction(store.transaction).then(() => db);
 };
