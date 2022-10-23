@@ -1,0 +1,30 @@
+name: Deploy Vue app with GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+
+  workflow_dispatch:
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+env:
+  API_SERVER: https://cdn.jsdelivr.net/gh/KleinChiu/legendary-fiesta/public/data
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Deploy Vue app to Github Pages
+        uses: xRealNeon/VuePagesAction@1.0.1
+        with:
+          username: "KleinChiu"
+          reponame: "legendary-fiesta"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          gitemail: 65886108+KleinChiu@users.noreply.github.com
+          gitname: Git Page CI/CD
+          gitmsg: "build: :rocket: Deploy app"
