@@ -6,10 +6,10 @@ export const SUPPORT_IDB = !!indexedDB;
 export * from "./customers";
 export * from "./personas";
 
-import personas from "./personas.json";
+import personas from "../public/data/personas.json";
 export type Persona = typeof personas.personas[0];
 
-import user from "./user.json";
+import user from "../public/data/user.json";
 export type User = typeof user;
 
 export type DbOperation<T = IDBDatabase> = (db: IDBDatabase) => Promise<T>;
