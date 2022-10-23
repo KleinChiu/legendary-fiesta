@@ -13,6 +13,13 @@ export const openPersonaStore: StoreDBOperation = (db) =>
     db.transaction(STORE_NAME, "readwrite").objectStore(STORE_NAME)
   );
 
+export const getAllPersonas = (store: IDBObjectStore) =>
+  new Promise<Persona[]>((res, rej) => {
+    const query = store.getAll();
+    query.addEventListener("error", rej);
+    query.addEventListener("success", () => res(query.result));
+  });
+
 export const addAllPersonas =
   (personas: Persona[]) => (store: IDBObjectStore) =>
-    personas.map((p) => store.put(p));
+    Promise.resolve(personas.map((p) => store.put(p)));
