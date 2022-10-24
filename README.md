@@ -30,7 +30,12 @@ npm install
 npm run serve
 ```
 
-## Environment Variable
+### HTTPS
+
+This app include share feature, which require secure context.
+By providing `cert.pem` and `key.pem` in `certs` directory, vite will be execute in HTTPS with config.
+
+### Environment Variable
 
 The app require the following env var to function properly.
 

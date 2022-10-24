@@ -1,6 +1,7 @@
 dist/
 sw.js
 !app/sw.js
+certs/
 
 # Created by https://www.toptal.com/developers/gitignore/api/git,node,visualstudiocode,vue
 # Edit at https://www.toptal.com/developers/gitignore?templates=git,node,visualstudiocode,vue
