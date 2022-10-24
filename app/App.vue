@@ -16,6 +16,14 @@
     </div>
     <p v-else>Now loading ... <progress /></p>
   </main>
+
+  <footer v-if="canShare">
+    Do you enjoy this app?
+    <span class="shareable" @click.prevent="shareApp">
+      Share with you friends!
+    </span>
+  </footer>
+  <footer v-else>Your device does not support share feature...</footer>
 </template>
 
 <script lang="ts">
@@ -23,7 +31,7 @@ export const Click_Key = "CLICK_COUNT";
 </script>
 
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { computed, ref, watch } from "vue";
 
 import db, {
   addAllPersonas,
@@ -58,4 +66,21 @@ fetchPersona()
   .then((ps) => db.then(openPersonaStore).then(addAllPersonas(ps ?? [])))
   .then(refreshPersonas);
 //#endregion
+
+//#region Share app
+const canShare = computed(() => navigator.canShare());
+const shareApp = () =>
+  navigator.share({
+    text: "Checkout this PWA",
+    title: "Legendary Fiesta",
+    url: location.href,
+  });
+//#endregion
 </script>
+
+<style scoped>
+.shareable {
+  cursor: pointer;
+  text-decoration: underline;
+}
+</style>
