@@ -68,13 +68,13 @@ fetchPersona()
 //#endregion
 
 //#region Share app
-const canShare = computed(() => navigator.canShare());
-const shareApp = () =>
-  navigator.share({
-    text: "Checkout this PWA",
-    title: "Legendary Fiesta",
-    url: location.href,
-  });
+const shareData: ShareData = {
+  text: "Checkout this PWA",
+  title: "Legendary Fiesta",
+  url: location.href,
+};
+const canShare = computed(() => navigator.canShare(shareData));
+const shareApp = () => navigator.share(shareData);
 //#endregion
 </script>
 
