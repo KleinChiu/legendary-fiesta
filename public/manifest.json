@@ -1,7 +1,7 @@
 {
   "id": "legendary-fiesta",
   "name": "Legendary Fiesta",
-  "short_name": "legendary-fiesta",
+  "short_name": "LeFi",
   "description": "A simple demo app for localStorage, IndexedDB and PWA, which fully functional offline.",
   "categories": ["education"],
   "theme_color": "#ffb900",
