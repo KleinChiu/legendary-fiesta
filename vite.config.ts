@@ -11,4 +11,10 @@ export default defineConfig({
     vue(),
   ],
   base: "/legendary-fiesta/",
+  build: {
+    minify: true,
+    rollupOptions: {
+      external: ["vue"],
+    },
+  },
 });
