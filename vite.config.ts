@@ -29,6 +29,12 @@ export default defineConfig({
     minify: true,
     rollupOptions: {
       external: ["vue"],
+      output: {
+        format: "iife",
+        globals: {
+          vue: "Vue",
+        },
+      },
     },
   },
 });
