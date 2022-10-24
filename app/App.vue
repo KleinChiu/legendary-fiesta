@@ -15,6 +15,13 @@
       <p>{{ person.story }}</p>
     </div>
     <p v-else>Now loading ... <progress /></p>
+
+    <div v-if="supportNotify">
+      <p>Notification is not supported</p>
+    </div>
+    <div v-else>
+      <button @click="notify">Test Notification</button>
+    </div>
   </main>
 
   <footer v-if="canShare">
@@ -75,6 +82,19 @@ const shareData: ShareData = {
 };
 const canShare = computed(() => navigator.canShare(shareData));
 const shareApp = () => navigator.share(shareData);
+//#endregion
+
+//#region Notification
+const supportNotify = computed(() => !!!Notification);
+const notify = async () => {
+  if (Notification.permission != "granted") {
+    await Notification.requestPermission();
+  }
+
+  new Notification("Notification title", {
+    body: "body text",
+  });
+};
 //#endregion
 </script>
 
