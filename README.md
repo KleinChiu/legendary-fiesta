@@ -1,19 +1,42 @@
 # Legendary Fiesta
 
-[![Deploy Vue app with GitHub Pages](https://github.com/KleinChiu/legendary-fiesta/actions/workflows/vite-gh-pages.yml/badge.svg?branch=main)](https://github.com/KleinChiu/legendary-fiesta/actions/workflows/vite-gh-pages.yml)
+General Info
+
+![GitHub](https://img.shields.io/github/license/KleinChiu/legendary-fiesta)
+
+Release Info
+
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/KleinChiu/legendary-fiesta?sort=semver)
+[![Deploy to GitHub Pages](https://github.com/KleinChiu/legendary-fiesta/actions/workflows/vite-gh-pages.yml/badge.svg?branch=main)](https://github.com/KleinChiu/legendary-fiesta/actions/workflows/vite-gh-pages.yml)
 ![Website](https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=blue&up_message=online&url=https%3A%2F%2Fkleinchiu.github.io%2Flegendary-fiesta%2F)
 ![jsDelivr hits (GitHub)](https://img.shields.io/jsdelivr/gh/hm/KleinChiu/legendary-fiesta)
-![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/KleinChiu/legendary-fiesta?sort=semver)
-![GitHub](https://img.shields.io/github/license/KleinChiu/legendary-fiesta)
+
+Development Info
+
 ![GitHub language count](https://img.shields.io/github/languages/count/KleinChiu/legendary-fiesta)
 ![GitHub top language](https://img.shields.io/github/languages/top/KleinChiu/legendary-fiesta)
 ![GitHub package.json dependency version (subfolder of monorepo)](https://img.shields.io/github/package-json/dependency-version/KleinChiu/legendary-fiesta/vue)
+
 [![CodeFactor](https://www.codefactor.io/repository/github/kleinchiu/legendary-fiesta/badge)](https://www.codefactor.io/repository/github/kleinchiu/legendary-fiesta)
 ![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/KleinChiu/legendary-fiesta)
 
-Try it out at the [GitHub Page](https://kleinchiu.github.io/legendary-fiesta/)!
+Try it out on [GitHub Pages](https://kleinchiu.github.io/legendary-fiesta/)!
 
-Tech demo for the follow:
+## Installation
+
+```sh
+git clone https://github.com/KleinChiu/legendary-fiesta.git
+cd legendary-fiesta
+npm install
+```
+
+## Usage
+
+```sh
+npm run serve
+```
+
+## Behaviour
 
 - PWA (manifest.json)
   - installable web app
@@ -22,20 +45,15 @@ Tech demo for the follow:
   - prompt install in browser (chrome, edge)
 - IndexedDB
 - LocalStorage
-
-## Contribution
-
-```sh
-npm install
-npm run serve
-```
+- Notification
+- Share API
 
 ### HTTPS
 
 This app include share feature, which require secure context.
 By providing `cert.pem` and `key.pem` in `certs` directory, vite will be execute in HTTPS with config.
 
-### Environment Variable
+### Configuration
 
 The app require the following env var to function properly.
 
