@@ -16,9 +16,21 @@ export default defineConfig({
       prefix: "",
       mountedPath: "process.env",
     }),
-    vue(),
+    vue({}),
   ],
   base: "/legendary-fiesta/",
+  build: {
+    cssCodeSplit: false,
+    rollupOptions: {
+      external: ["vue"],
+      output: {
+        format: "iife",
+        globals: {
+          vue: "Vue",
+        },
+      },
+    },
+  },
   server: {
     https: https && {
       cert: readFileSync(resolve(__dirname, "certs", "certificate.pem")),
