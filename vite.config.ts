@@ -25,16 +25,4 @@ export default defineConfig({
       key: readFileSync(resolve(__dirname, "certs", "key.pem")),
     },
   },
-  build: {
-    minify: true,
-    rollupOptions: {
-      external: ["vue"],
-      output: {
-        format: "iife",
-        globals: {
-          vue: "Vue",
-        },
-      },
-    },
-  },
 });
