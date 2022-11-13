@@ -3,11 +3,12 @@
   "version": "1.1.0",
   "description": "Demo PWA",
   "scripts": {
-    "build": "npm run build:sw && npm run build:app",
+    "build": "npm run build:app && npm run build:sw",
     "build:app": "vite build",
-    "build:sw": "workbox injectManifest workbox.config.js",
-    "dev": "npm run build:sw && vite",
-    "serve": "npm run build:sw && vite serve --host"
+    "build:sw": "workbox injectManifest workbox.prod.config.js",
+    "dev": "npm run dev:sw && npm run dev:app",
+    "dev:app": "vite",
+    "dev:sw": "workbox injectManifest workbox.dev.config.js"
   },
   "repository": {
     "type": "git",
