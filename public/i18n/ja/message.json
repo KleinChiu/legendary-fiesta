@@ -1,0 +1,7 @@
+{
+  "message": {
+    "hello": "こんにちは、世界"
+  },
+  "welcome": "ようこそ、{user}",
+  "click": "ボタンを{count}回押した"
+}

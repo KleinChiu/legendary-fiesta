@@ -1,6 +1,10 @@
 <template>
   <header>
-    <span v-if="!!user"> Welcome, {{ user.username }} </span>
+    <h1>{{ $t("message.hello") }}</h1>
+
+    <span v-if="!!user">
+      {{ $t("welcome", { user: user.username }) }}
+    </span>
     <span v-else>
       <button @click="login">Log In Here</button>
     </span>
@@ -8,7 +12,7 @@
 
   <main>
     <button @click="increment">Click Me!</button>
-    <div>Clicked: {{ count }}</div>
+    <div>{{ $tc("click", count) }}</div>
 
     <div v-for="person in personas" v-if="personas">
       <span>{{ person.name }}</span>
