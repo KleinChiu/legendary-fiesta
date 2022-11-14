@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  API_SERVER: https://cdn.jsdelivr.net/gh/KleinChiu/legendary-fiesta/public/data
+  API_SERVER: https://cdn.jsdelivr.net/gh/KleinChiu/legendary-fiesta/public
 
 jobs:
   build:
