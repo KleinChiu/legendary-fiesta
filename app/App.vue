@@ -1,14 +1,24 @@
 <template>
   <header>
-    <span v-if="!!user"> Welcome, {{ user.username }} </span>
+    <h1>{{ t("message.hello") }}</h1>
+
+    <span v-if="!!user">
+      {{ t("welcome", { user: user.username }) }}
+    </span>
     <span v-else>
       <button @click="login">Log In Here</button>
     </span>
+
+    <select v-model="locale">
+      <option v-for="locale in availableLocales" :key="locale" :value="locale">
+        {{ locale }}
+      </option>
+    </select>
   </header>
 
   <main>
     <button @click="increment">Click Me!</button>
-    <div>Clicked: {{ count }}</div>
+    <div>{{ t("click", count) }}</div>
 
     <div v-for="person in personas" v-if="personas">
       <span>{{ person.name }}</span>
@@ -39,6 +49,7 @@ export const Click_Key = "CLICK_COUNT";
 
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
+import { useI18n } from "vue-i18n";
 
 import db, {
   addAllPersonas,
@@ -47,7 +58,8 @@ import db, {
   Persona,
   User,
 } from "../data";
-import { fetchPersona, login as signIn } from "../lib";
+import { fetchPersona, loadLocale, login as signIn } from "../lib";
+import { MessageSchema, SupportLocales } from "../plugin/i18n";
 
 //#region Counter
 const count = ref(Number.parseInt(localStorage.getItem(Click_Key) ?? "0"));
@@ -95,6 +107,20 @@ const notify = async () => {
     body: "body text",
   });
 };
+//#endregion
+
+//#region i18n
+const { t, locale, setLocaleMessage, availableLocales } = useI18n<
+  [MessageSchema],
+  SupportLocales
+>();
+
+watch(locale, (loc) => {
+  loadLocale(loc)
+    .then((msg) => setLocaleMessage(loc, msg))
+    .then(() => (locale.value = loc))
+    .then(() => document.querySelector("html")?.setAttribute("lang", loc));
+});
 //#endregion
 </script>
 

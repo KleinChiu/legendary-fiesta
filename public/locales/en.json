@@ -1,0 +1,7 @@
+{
+  "message": {
+    "hello": "hello world"
+  },
+  "welcome": "Welcome, {user}",
+  "click": "You didn't clicked yet! | You clicked {count} time | You clicked {count} times"
+}

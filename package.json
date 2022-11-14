@@ -1,6 +1,6 @@
 {
   "name": "legendary-fiesta",
-  "version": "1.1.0",
+  "version": "1.0.5",
   "description": "Demo PWA",
   "scripts": {
     "build": "npm run build:app && npm run build:sw",
@@ -26,6 +26,7 @@
     "vite": "^3.1.8",
     "vite-plugin-env-compatible": "^1.1.1",
     "vue": "^3.2.41",
+    "vue-i18n": "^9.2.2",
     "workbox-cli": "^6.5.4"
   }
 }
