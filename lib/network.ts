@@ -10,3 +10,6 @@ export const login = () =>
   fetch(`${process.env.API_SERVER}/user.json`)
     .then<User>((data) => data.json())
     .catch(() => null);
+
+export const loadLocale = (locale: SupportLocales) =>
+  fetch(`locales/${locale}.json`).then<MessageSchema>((data) => data.json());
