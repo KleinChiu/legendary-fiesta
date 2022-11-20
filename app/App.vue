@@ -1,6 +1,7 @@
 <template>
   <header>
-    <h1>{{ t("message.hello") }}</h1>
+    <h1>{{ AppName }} {{ AppVersion }}</h1>
+    <h2>{{ t("message.hello") }}</h2>
 
     <span v-if="!!user">
       {{ t("welcome", { user: user.username }) }}
@@ -48,7 +49,7 @@ export const Click_Key = "CLICK_COUNT";
 </script>
 
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
+import { capitalize, computed, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 
 import db, {
@@ -60,6 +61,12 @@ import db, {
 } from "../data";
 import { fetchPersona, loadLocale, login as signIn } from "../lib";
 import { MessageSchema, SupportLocales } from "../plugin/i18n";
+
+const AppName = process.env.npm_package_name
+  .split("-")
+  .map(capitalize)
+  .join(" ");
+const AppVersion = process.env.npm_package_version;
 
 //#region Counter
 const count = ref(Number.parseInt(localStorage.getItem(Click_Key) ?? "0"));
