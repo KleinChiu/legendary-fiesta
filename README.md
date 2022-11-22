@@ -22,6 +22,9 @@ Development Info
 
 Try it out on [GitHub Pages](https://kleinchiu.github.io/legendary-fiesta/)!
 
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz_small.svg)](https://stackblitz.com/github/kleinchiu/legendary-fiesta)
+[![Open in vscode.dev](https://img.shields.io/badge/-Open%20in%20vscode.dev-007ACC?logo=Visual%20Studio%20Code)](https://vscode.dev/github/kleinchiu/legendary-fiesta)
+
 ## Installation
 
 ```sh
